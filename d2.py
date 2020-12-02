@@ -4,11 +4,7 @@ Created on Wed Dec  2 06:08:11 2020
 
 @author: Notebook
 """
-
-import re
-
 passwords = []
-matching = []
 rules = []
 
 def getOccurences(string, pattern):
@@ -39,9 +35,3 @@ for i, rule in enumerate(rules):
 
 print(len(valid))
 print(len(valid2))
-
-
-
-
-    #print(regex)
-    
