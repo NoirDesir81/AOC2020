@@ -19,7 +19,7 @@ N = [getSeatParameters(seat)[2] for seat in seats]
 print(max(N))
 
 N = sorted(N)
-for i in range(1, len(N)-1):
+for i in range(1, len(N)):
     if N[i]-N[i-1] == 2:
         print(N[i]-1)
         break
