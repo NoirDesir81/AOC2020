@@ -18,7 +18,7 @@ Nany = 0
 Nall = 0
 
 for g in groups:
-    Nany += len(set(g.replace('\n', '')))
+    Nany += len(set(''.join(g.split())))
     Nall += len(compareStrings(g.split()))
 
 print(Nany)
