@@ -30,8 +30,7 @@ for i in inst:
 
 print(abs(pos[0])+abs(pos[1]))
 
-turns=[1, -1] # rotation matrix
-rdir = {'R': 1, 'L': -1}
+turns=np.array([[0, 1],[-1, 0]]) # rotation matrix
        
 wp = [-1, 10]
 pos = [0, 0]
@@ -40,12 +39,12 @@ for i in inst:
     num=int(i[1:])
     if letter in move:
         wp = np.add(np.multiply(num, move[letter]), wp)
-    elif letter in rdir:
+    elif letter in ['R', 'L']:
         steps = int(num/90)
+        if letter == 'L':
+            steps = 4-steps
         for t in range(steps):
-            oldwp=wp.copy()
-            wp[0]=oldwp[1]*turns[0]*rdir[letter]
-            wp[1]=oldwp[0]*turns[1]*rdir[letter]
+            wp=np.dot(turns, wp)
     elif letter == 'F':
         pos = np.add(np.multiply(num, wp), pos)
 
